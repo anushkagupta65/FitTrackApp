@@ -1,5 +1,7 @@
 import 'package:fit_track_app/src/presentation/home_screen/home_screen.dart';
+import 'package:fit_track_app/src/presentation/journal_screen/journal_screen.dart';
 import 'package:fit_track_app/src/presentation/profile_screen/profile_screen.dart';
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -10,14 +12,15 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  @override
   int currentPageIndex = 0;
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: IndexedStack(
         index: currentPageIndex,
         children: const [
           HomeScreen(),
+          JournalScreen(),
           ProfileScreen(),
         ],
       ),
@@ -39,11 +42,15 @@ class _HomeState extends State<Home> {
           items: const [
             BottomNavigationBarItem(
               label: "home",
-              icon: Icon(Icons.home_outlined),
+              icon: Icon(FluentIcons.home_20_regular),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(FluentIcons.document_one_page_20_regular),
+              label: "journal",
             ),
             BottomNavigationBarItem(
               label: "profile",
-              icon: Icon(Icons.person_2_outlined),
+              icon: Icon(FluentIcons.person_20_regular),
             )
           ],
         ),
